@@ -51,4 +51,5 @@ echo "\n----- DONE ------\n"
 echo "\n----- Installing maven ------\n"
 sudo apt-get install -y maven
 sudo apt-get install -y gradle
+sudo apt-get install cassandra
 

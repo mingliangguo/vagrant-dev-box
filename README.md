@@ -6,6 +6,11 @@ The following software will be installed in the box:
 - docker
 - java8
 - nodejs
+- npm
+- maven
+- gradle
+- firefox
+- chromium
 - vim
 
 ## Prerequisite
