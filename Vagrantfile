@@ -20,8 +20,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :shell, path: "bootstrap.sh"
   config.vm.provision "shell", path: "init.sh", privileged: false
   config.vm.provision :shell, path: "setup_vim.sh", privileged: false
-  config.vm.provision :shell, inline: "sudo Xvfb :10 -ac &", run:"always", privileged: false
-  config.vm.provision :shell, inline: "export DISPLAY=:10", run:"always", privileged: false
+#  config.vm.provision :shell, inline: "sudo Xvfb :10 -ac &", run:"always", privileged: false
+#  config.vm.provision :shell, inline: "export DISPLAY=:10", run:"always", privileged: false
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
