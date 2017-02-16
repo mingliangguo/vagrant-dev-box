@@ -23,6 +23,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 #  config.vm.provision :shell, inline: "sudo Xvfb :10 -ac &", run:"always", privileged: false
 #  config.vm.provision :shell, inline: "export DISPLAY=:10", run:"always", privileged: false
 
+  # Create a private network, which allows host-only access to the machine
+  # using a specific IP.
+  config.vm.network "private_network", ip: "192.168.33.10"
+
+
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
   # `vagrant box outdated`. This is not recommended.
@@ -33,11 +38,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # accessing "localhost:8080" will access port 80 on the guest machine.
   config.vm.network "forwarded_port", guest: 8080, host: 8080
   config.vm.network "forwarded_port", guest: 8081, host: 8081
- 
-  # Create a private network, which allows host-only access to the machine
-  # using a specific IP.
-  config.vm.network "private_network", ip: "192.168.33.10"
 
+  # ports used by cassandra
+  # CQL native port
+#   config.vm.network "forwarded_port", guest: 9042, host: 19042
+#   # inter node cluster
+#   config.vm.network "forwarded_port", guest: 7000, host: 17000
+#   # SSL inter node cluster
+#   config.vm.network "forwarded_port", guest: 7001, host: 17001
+#   # JMX
+#   config.vm.network "forwarded_port", guest: 7199, host: 17199 
+#   # Thrift
+#   config.vm.network "forwarded_port", guest: 9160, host: 19160
+#  
   # Create a public network, which generally matched to bridged network.
   # Bridged networks make the machine appear as another physical device on
   # your network.
