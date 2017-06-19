@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
 echo "\n-----Updating ------\n"
-sudo apt-get update
-sudo apt-get upgrade
+sudo apt-get update && sudo apt-get -y upgrade
 sudo apt-get install -y build-essential
 
 # add for vim8
@@ -20,14 +19,21 @@ echo "\n----- Installing git and others ------\n"
 sudo apt-get install zsh
 sudo apt-get install -y git
 sudo apt-get install -y docker
-sudo apt-get install -y nodejs-legacy 
 sudo apt-get install -y nodejs npm
-sudo apt-get install -y firefox xvfb
-sudo apt-get install -y chromium-browser
+sudo apt-get install -y httpie
+sudo apt-get install -y silversearcher-ag
+# sudo apt-get install -y firefox xvfb
+# sudo apt-get install -y chromium-browser
 
 echo "install oh-my-zsh"
 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
 chsh -s `which zsh`
+
+echo "\n ---------- install python tools---------- \n"
+sudo apt-get install python-pip
+pip install --upgrade pip
+pip install git+https://github.com/jeffkaufman/icdiff.git
+echo "\n----- DONE ------\n"
 
 # echo "\n----- Installing Java 8 ------\n"
 # apt-get install -y python-software-properties debconf-utils
